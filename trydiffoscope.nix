@@ -33,4 +33,12 @@ buildPythonApplication {
     rev = "67.0.5";
     sha256 = "sha256-tz2oHnZSxns5ol/qg+EBo1q08o5jm1lD7Tnyv5EMWts=";
   };
+
+  meta = with lib; {
+    homepage = "https://salsa.debian.org/reproducible-builds/trydiffoscope";
+    description = "In-depth comparison of files, archives, etc. (try.diffoscope.org client)";
+    license = licenses.unfree; # license unspecified
+    platforms = platforms.unix;
+    maintainers = with maintainers; [ magic_rb ];
+  };
 }
