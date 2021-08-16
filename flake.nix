@@ -19,7 +19,7 @@
         overlay = self.overlays.trydiffoscope;
 
         packages = forAllSystems (system:
-          { bitmask-vpn = self.defaultPackage.${system}; }
+          { trydiffoscope = self.defaultPackage.${system}; }
         );
 
         defaultPackage = forAllSystems (system:
@@ -32,6 +32,10 @@
           in
             pkgs.trydiffoscope
         );
+
+        apps = self.packages;
+
+        defaultApp = self.defaultPackage;
 
         devShell = forAllSystems (system:
           let
