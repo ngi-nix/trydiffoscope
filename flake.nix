@@ -33,9 +33,18 @@
             pkgs.trydiffoscope
         );
 
-        apps = self.packages;
+        apps = mapAttrs (_: v:
+          mapAttrs (_: a:
+            {
+              type = "app";
+              program = a;
+            }
+          ) v
+        ) self.packages;
 
-        defaultApp = self.defaultPackage;
+        defaultApp = mapAttrs (_: v:
+          v.trydiffoscope
+        ) self.apps;
 
         devShell = forAllSystems (system:
           let
